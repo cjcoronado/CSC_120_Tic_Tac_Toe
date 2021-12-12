@@ -28,7 +28,7 @@ def game():
 
     for i in range(10):
         print_board(board)
-        print(f"It's your turn,{turn}. Move to which place?")
+        print(f"It's your turn, {turn}. Place your mark.")
 
         move = input()
 
@@ -36,7 +36,7 @@ def game():
             board[move] = turn
             count += 1
         else:
-            print("That place is already filled.\nMove to which place?")
+            print("That place is already filled.\nPlace your mark in a different spot.")
             continue
 
         # For every move after 5 moves check which player won.
@@ -86,6 +86,7 @@ def game():
         if count == 9:
             print("\nGame Over.\n")
             print("The game is tied. No winner. Play again to settle the odds.")
+            quit()
 
         # Alternate players.
         if turn == 'X':
