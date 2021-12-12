@@ -2,7 +2,7 @@
 # Christopher Coronado
 # CSC 120
 # 12/12/2021
-# The purpose of this program is to create a Tic Tac Toe game playable by two people
+# The purpose of this program is to create a two player Tic Tac Toe game.
 
 board = {'7': ' ', '8': ' ', '9': ' ',
          '4': ' ', '5': ' ', '6': ' ',
@@ -28,7 +28,7 @@ def game():
 
     for i in range(10):
         print_board(board)
-        print("It's your turn," + turn + ". Move to which place?")
+        print(f"It's your turn,{turn}. Move to which place?")
 
         move = input()
 
@@ -41,51 +41,51 @@ def game():
 
         # For every move after 5 moves check which player won.
         if count >= 5:
-            if board['7'] == board['8'] == board['9'] != ' ':  # Across the top
+            if board['7'] == board['8'] == board['9'] != ' ':  # Top row win
                 print_board(board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(f"{turn} is the winner! Bow down to {turn}'s superior TicTacToe skills!")
                 break
-            elif board['4'] == board['5'] == board['6'] != ' ':  # Across the middle
+            elif board['4'] == board['5'] == board['6'] != ' ':  # Middle row win
                 print_board(board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(f"{turn} is the winner! Bow down to {turn}'s superior TicTacToe skills!")
                 break
-            elif board['1'] == board['2'] == board['3'] != ' ':  # Across the bottom
+            elif board['1'] == board['2'] == board['3'] != ' ':  # Bottom row win
                 print_board(board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(f"{turn} is the winner! Bow down to {turn}'s superior TicTacToe skills!")
                 break
-            elif board['1'] == board['4'] == board['7'] != ' ':  # Down the left side
+            elif board['1'] == board['4'] == board['7'] != ' ':  # Left column win
                 print_board(board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(f"{turn} is the winner! Bow down to {turn}'s superior TicTacToe skills!")
                 break
-            elif board['2'] == board['5'] == board['8'] != ' ':  # Down the middle
+            elif board['2'] == board['5'] == board['8'] != ' ':  # Middle column win
                 print_board(board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(f"{turn} is the winner! Bow down to {turn}'s superior TicTacToe skills!")
                 break
-            elif board['3'] == board['6'] == board['9'] != ' ':  # Down the right side
+            elif board['3'] == board['6'] == board['9'] != ' ':  # Right column win
                 print_board(board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(f"{turn} is the winner! Bow down to {turn}'s superior TicTacToe skills!")
                 break
-            elif board['7'] == board['5'] == board['3'] != ' ':  # Diagonal
+            elif board['7'] == board['5'] == board['3'] != ' ':  # Diagonal win
                 print_board(board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(f"{turn} is the winner! Bow down to {turn}'s superior TicTacToe skills!")
                 break
-            elif board['1'] == board['5'] == board['9'] != ' ':  # Diagonal
+            elif board['1'] == board['5'] == board['9'] != ' ':  # Diagonal win
                 print_board(board)
                 print("\nGame Over.\n")
-                print(" **** " + turn + " won. ****")
+                print(f"{turn} is the winner! Bow down to {turn}'s superior TicTacToe skills!")
                 break
 
-        # Call a tie.
+        # Tie condition
         if count == 9:
             print("\nGame Over.\n")
-            print("It's a Tie!!")
+            print("The game is tied. No winner. Play again to settle the odds.")
 
         # Alternate players.
         if turn == 'X':
@@ -94,8 +94,8 @@ def game():
             turn = 'X'
 
     # Play again?
-    restart = input("Do want to play Again?(y/n)")
-    if restart == "y" or restart == "Y":
+    restart = input("Do want to play again?(y/n)")
+    if restart.upper() == "Y":
         for key in board_keys:
             board[key] = " "
 
